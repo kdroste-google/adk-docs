@@ -1,7 +1,7 @@
 # Session: Tracking Individual Conversations
 
 <div class="language-support-tag">
-  <span class="lst-supported">Supported in ADK</span><span class="lst-python">Python v0.1.0</span><span class="lst-typescript">Typescript v0.2.0</span><span class="lst-go">Go v0.1.0</span><span class="lst-java">Java v0.1.0</span>
+  <span class="lst-supported">Supported in ADK</span><span class="lst-python">Python v0.1.0</span><span class="lst-typescript">Typescript v0.2.0</span><span class="lst-go">Go v0.1.0</span><span class="lst-java">Java v0.1.0</span><span class="lst-kotlin">Kotlin v0.1.0</span>
 </div>
 
 Following our Introduction, let's dive into the `Session`. Think back to the
@@ -131,6 +131,36 @@ are its key properties:
         var unused = exampleSessionService.deleteSession(appName, userId, sessionId);
        ```
 
+=== "Kotlin"
+
+       ```kotlin
+        import com.google.adk.kt.sessions.InMemorySessionService
+        import com.google.adk.kt.sessions.SessionKey
+
+        val sessionId = "123"
+        val appName = "example-app"
+        val userId = "example-user"
+        val initialState = mapOf("newKey" to "newValue")
+        val sessionService = InMemorySessionService()
+
+        // Create Session
+        val exampleSession = sessionService.createSession(
+            key = SessionKey(appName, userId, sessionId),
+            state = initialState
+        )
+        println("Session created successfully.")
+
+        println("--- Examining Session Properties ---")
+        println("ID (`id`):                ${exampleSession.key.id}")
+        println("Application Name (`appName`): ${exampleSession.key.appName}")
+        println("User ID (`userId`):         ${exampleSession.key.userId}")
+        println("State (`state`):           ${exampleSession.state}")
+        println("------------------------------------")
+
+        // Clean up (optional for this example)
+        sessionService.deleteSession(exampleSession.key)
+       ```
+
 *(**Note:** The state shown above is only the initial state. State updates
 happen via events, as discussed in the State section.)*
 
@@ -196,6 +226,13 @@ the storage backend that best suits your needs:
         InMemorySessionService exampleSessionService = new InMemorySessionService();
       ```
 
+=== "Kotlin"
+
+      ```kotlin
+        import com.google.adk.kt.sessions.InMemorySessionService
+        val sessionService = InMemorySessionService()
+      ```
+
 ### `VertexAiSessionService`
 
 <div class="language-support-tag">
@@ -210,7 +247,7 @@ the storage backend that best suits your needs:
     *   A Google Cloud project (`pip install vertexai`)
     *   A Google Cloud storage bucket that can be configured by this
         [step](https://cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage).
-    *   A Reasoning Engine resource name/ID that can setup following this
+    *   An Agent Runtime resource name/ID that can setup following this
         [tutorial](/deploy/agent-runtime/).
     *   If you do not have a Google Cloud project and you want to try the VertexAiSessionService, see [Agent Platform Express Mode](/integrations/express-mode/).
 *   **Best for:** Scalable production applications deployed on Google Cloud,

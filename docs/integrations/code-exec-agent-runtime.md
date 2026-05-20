@@ -13,7 +13,7 @@ catalog_tags: ["code", "google"]
 
 The Agent Runtime Code Execution ADK Tool provides a low-latency, highly
 efficient method for running AI-generated code using the
-[Google Cloud Agent Engine](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview)
+[Google Cloud Agent Runtime](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview)
 service. This tool is designed for fast execution, tailored for agentic workflows,
 and uses sandboxed environments for improved security. The Code Execution tool
 allows code and data to persist over multiple requests, enabling complex,
@@ -28,7 +28,7 @@ This code execution tool is part of the Agent Runtime suite, however you do not
 have to deploy your agent to Agent Runtime to use it. You can run your agent
 locally or with other services and use this tool. For more information about the
 Code Execution feature in Agent Runtime, see the
-[Agent Engine Code Execution](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/code-execution/overview)
+[Agent Runtime Code Execution](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/code-execution/overview)
 documentation.
 
 
@@ -68,7 +68,7 @@ alternative `agent_engine_resource_name` parameter, see [Configuration
 parameters](#config-parameters). For a more advanced example, including
 recommended system instructions for the tool, see the [Advanced
 example](#advanced-example) or the full
-[agent code example](https://github.com/google/adk-python/tree/main/contributing/samples/agent_engine_code_execution).
+[agent code example](https://github.com/google/adk-python/tree/main/contributing/samples/code_execution/agent_engine_code_execution).
 
 ## How it works
 
@@ -237,4 +237,4 @@ When plotting trends, you should make sure to sort and order the data by the x-a
 ```
 
 For a complete version of an ADK agent using this example code, see the
-[agent_engine_code_execution sample](https://github.com/google/adk-python/tree/main/contributing/samples/agent_engine_code_execution).
+[agent_engine_code_execution sample](https://github.com/google/adk-python/tree/main/contributing/samples/code_execution/agent_engine_code_execution).
